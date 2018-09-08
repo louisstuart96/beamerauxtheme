@@ -1,0 +1,84 @@
+\mode<presentation>
+
+\defbeamertemplate*{title page}{simplelines}{%
+  \vbox{}\vfill
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  \vskip1ex
+  {\usebeamercolor[fg]{title}\hrule height .4pt}
+  \vskip1ex
+  \ifx\insertsubtitle\@empty\else
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par\vskip1ex}
+  \fi
+  \vfill
+  {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par\vskip1ex}
+  {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par\vskip1ex}
+  {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+  \vfill
+}
+
+\defbeamertemplate*{part page}{simplelines}{%
+  {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\strut \partname\ \insertpartnumber\par}
+  \vskip1ex
+  {\usebeamercolor[fg]{part title}\hrule height .4pt}
+  \vskip1ex
+  {\usebeamerfont{part title}\usebeamercolor[fg]{part title}\strut\insertpart\par}
+}
+
+\defbeamertemplate*{section page}{simplelines}{%
+  {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\strut \sectionname\ \insertsectionnumber\par}
+  \vskip1ex
+  {\usebeamercolor[fg]{section title}\hrule height .4pt}
+  \vskip1ex
+  {\usebeamerfont{section title}\usebeamercolor[fg]{section title}\strut\insertsection\par}
+}
+
+\defbeamertemplate*{subsection page}{simplelines}{%
+  {\usebeamerfont{subsection name}\usebeamercolor[fg]{subsection name}\strut \subsectionname\ \insertsubsectionnumber\par}
+  \vskip1ex
+  {\usebeamercolor[fg]{subsection title}\hrule height .4pt}
+  \vskip1ex
+  {\usebeamerfont{subsection title}\usebeamercolor[fg]{subsection title}\strut\insertsubsection\par}
+}
+
+\setbeamercolor{block body dimmed}{use={block title,block body},fg=block body.fg,bg=block title.fg!30!bg}
+\setbeamercolor{block body alerted dimmed}{use={block title alerted,block body alerted,normal text},fg=block body alerted.fg,bg=block title alerted.fg!30!bg}
+\setbeamercolor{block body example dimmed}{use={block title example,block body example,normal text},fg=block body example.fg,bg=block title example.fg!30!bg}
+
+\defbeamertemplate*{block begin}{simplelines}{%
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=.75ex]{block body dimmed}
+  {\leavevmode\usebeamerfont{block title}\usebeamercolor[fg]{block title}\strut\insertblocktitle\par}
+  {\color{block title.fg!80!black}\hrule\@height.4pt}
+  \vskip1ex
+}
+
+\defbeamertemplate*{block end}{simplelines}{%
+  \end{beamercolorbox}\vskip\smallskipamount
+}
+
+\defbeamertemplate*{block alerted begin}{simplelines}{%
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=.75ex]{block body alerted dimmed}
+  {\leavevmode\usebeamerfont{block title alerted}\usebeamercolor[fg]{block title alerted}\strut\insertblocktitle\par}
+  {\color{block title alerted.fg!80!black}\hrule\@height.4pt}
+  \vskip1ex
+}
+
+\defbeamertemplate*{block alerted end}{simplelines}{%
+  \end{beamercolorbox}\vskip\smallskipamount
+}
+
+\defbeamertemplate*{block example begin}{simplelines}{%
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=.75ex]{block body example dimmed}
+  {\leavevmode\usebeamerfont{block title example}\usebeamercolor[fg]{block title example}\strut\insertblocktitle\par}
+  {\color{block title example.fg!80!black}\hrule\@height.4pt}
+  \vskip1ex
+}
+
+\defbeamertemplate*{block example end}{simplelines}{%
+  \end{beamercolorbox}\vskip\smallskipamount
+}
+
+\mode
+<all>
