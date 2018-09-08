@@ -1,0 +1,82 @@
+\mode<presentation>
+
+\setbeamertemplate{section in head/foot}{\hfill\insertsectionhead}
+\setbeamertemplate{section in head/foot shaded}{\hfill\color{fg!50!bg}\insertsectionhead}
+
+
+\def\insertsubsectionnavigationwithminiframe#1{%
+  \hbox to #1{%
+    \vbox{{%
+      \usebeamerfont{subsection in head/foot}\usebeamercolor[fg]{subsection in head/foot}%
+      \vskip0.5625ex%
+      \beamer@currentsubsection=0%
+      \def\sectionentry##1##2##3##4##5{}%
+      \def\beamer@subsectionentry##1##2##3##4##5{%
+        \ifnum##1=\c@part\ifnum##2=\c@section%
+        \def\insertpartheadnumber{##1}%
+        \def\insertsectionheadnumber{##2}%
+        \def\insertsubsectionheadnumber{##3}%
+        \def\insertsubsectionhead{##5}%
+        \par\leavevmode%
+        \setbox\beamer@tempbox=\hbox{\hskip0.3cm%
+          \hyperlink{Navigation##4}{\hbox{%
+             \ifnum\c@subsection=##3%
+               {\usebeamertemplate{subsection in head/foot}}%
+             \else%
+               {\usebeamertemplate{subsection in head/foot shaded}}%
+             \fi\hskip0.3cm}}}%
+        \ht\beamer@tempbox=1.6875ex\dp\beamer@tempbox=0.75ex%
+        \box\beamer@tempbox%
+        \fi\fi}%
+      \def\slideentry##1##2##3##4##5##6{\ifnum##6=\c@part\ifnum##1=\c@section\ifnum##2>0%
+        \def\insertsubsectionhead{##5}%
+        \def\insertsectionheadnumber{##1}%
+        \def\insertsubsectionheadnumber{##2}%
+        \def\insertpartheadnumber{##6}%
+        \leavevmode\setbox\beamer@tempbox=\hbox{\beamer@link(##4){%
+          \usebeamerfont{mini frame}%
+          \ifnum\c@section=##1%
+            \ifnum\c@subsection=##2%
+              \usebeamercolor[fg]{mini frame}%
+              \ifnum\c@subsectionslide=##3%
+                \usebeamertemplate{mini frame}
+              \else%
+                \usebeamertemplate{mini frame in current subsection}
+              \fi%
+            \else%
+              \usebeamercolor{mini frame}%
+              \usebeamertemplate{mini frame in other subsection}
+            \fi%
+          \else%
+            \usebeamercolor{mini frame}%
+            \usebeamertemplate{mini frame in other subsection}
+          \fi%
+        }}%
+        \ht\beamer@tempbox=1.6875ex\dp\beamer@tempbox=0.75ex\wd\beamer@tempbox=\beamer@boxsize%
+        \box\beamer@tempbox%
+        \fi\fi\fi}%
+      \dohead\vskip0.5625ex}}\hfil}}
+
+
+\defbeamertemplate*{headline}{split with miniframe}
+{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigationwithminiframe{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+  \fi%
+}
+
+\mode
+<all>
