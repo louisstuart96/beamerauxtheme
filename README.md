@@ -1,5 +1,9 @@
 # Auxiliary outer and inner themes for LaTeX beamer class
 
+[![license shield]](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE)
+
+[license shield]: https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg
+
 ## Outer Theme
 
 ### split with mini frame
