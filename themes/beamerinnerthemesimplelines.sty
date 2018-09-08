@@ -40,15 +40,15 @@
   {\usebeamerfont{subsection title}\usebeamercolor[fg]{subsection title}\strut\insertsubsection\par}
 }
 
-\setbeamercolor{block body dimmed}{use={block title,block body},fg=block body.fg,bg=block title.fg!30!bg}
-\setbeamercolor{block body alerted dimmed}{use={block title alerted,block body alerted,normal text},fg=block body alerted.fg,bg=block title alerted.fg!30!bg}
-\setbeamercolor{block body example dimmed}{use={block title example,block body example,normal text},fg=block body example.fg,bg=block title example.fg!30!bg}
+\setbeamercolor{block body dimmed}{parent=block body,use=structure,bg=structure.fg!25!bg}
+\setbeamercolor{block body alerted dimmed}{parent=block body alerted,use=altered text,bg=alerted text.fg!25!bg}
+\setbeamercolor{block body example dimmed}{parent=block body example,use=example text,bg=example text.fg!25!bg}
 
 \defbeamertemplate*{block begin}{simplelines}{%
   \par\vskip\medskipamount
   \begin{beamercolorbox}[colsep*=.75ex]{block body dimmed}
   {\leavevmode\usebeamerfont{block title}\usebeamercolor[fg]{block title}\strut\insertblocktitle\par}
-  {\color{block title.fg!80!black}\hrule\@height.4pt}
+  {\usebeamercolor{structure}\color{structure.fg!80!black}\hrule\@height.4pt}
   \vskip1ex
 }
 
@@ -60,7 +60,7 @@
   \par\vskip\medskipamount
   \begin{beamercolorbox}[colsep*=.75ex]{block body alerted dimmed}
   {\leavevmode\usebeamerfont{block title alerted}\usebeamercolor[fg]{block title alerted}\strut\insertblocktitle\par}
-  {\color{block title alerted.fg!80!black}\hrule\@height.4pt}
+  {\usebeamercolor{alerted text}\color{alerted text.fg!80!black}\hrule\@height.4pt}
   \vskip1ex
 }
 
@@ -72,7 +72,7 @@
   \par\vskip\medskipamount
   \begin{beamercolorbox}[colsep*=.75ex]{block body example dimmed}
   {\leavevmode\usebeamerfont{block title example}\usebeamercolor[fg]{block title example}\strut\insertblocktitle\par}
-  {\color{block title example.fg!80!black}\hrule\@height.4pt}
+  {\usebeamercolor{example text}\color{example text.fg!80!black}\hrule\@height.4pt}
   \vskip1ex
 }
 
