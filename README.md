@@ -14,7 +14,9 @@ This theme inherits primitive `split` outer theme, with additional slide entries
 
 This theme inherits primitive `sidebar` outer theme, with additional slide entries.
 
-**Note**: This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are OK.
+**Note**: 
+1. The entries by `\subsubsection` are excluded.
+2. This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are OK.
 
 ## Inner Theme
 
