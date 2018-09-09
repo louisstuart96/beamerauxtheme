@@ -1,0 +1,161 @@
+%% beamerouterthemesidebarwithminiframes.sty
+%% Copyright 2018 Louis Stuart
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Louis Stuart.
+
+\useoutertheme{sidebar}
+
+\mode<presentation>
+
+\def\insertverticalnavigationwithminiframes#1{%
+  \vbox{%
+    \def\sectionentry##1##2##3##4##5{%
+      \ifnum##5=\c@part%
+      \def\insertsectionhead{##2}%
+      \def\insertsectionheadnumber{##1}%
+      \def\insertpartheadnumber{##5}%
+      \par\leftskip\z@%
+      \hbox to #1{{%
+        \usebeamerfont{section in sidebar}\usebeamercolor[fg]{section in sidebar}%
+          \hyperlink{Navigation##3}{%
+          \ifnum\c@section=##1%
+            \ifnum\c@subsection=0\relax%
+              {\usebeamertemplate{section in sidebar}}%
+            \else%
+              \ifx\beamer@nav@css\beamer@hidetext%
+                {\usebeamertemplate{section in sidebar}}%
+              \else%
+                {\usebeamertemplate{section in sidebar shaded}}%
+              \fi%
+            \fi%
+          \else
+            {\usebeamertemplate{section in sidebar shaded}}%
+          \fi}}}%
+      \beamer@currentsubsection=0\relax\fi}%
+    \def\beamer@subsectionentry##1##2##3##4##5{%
+      \ifnum##1=\c@part%
+      \def\insertpartheadnumber{##1}%
+      \def\insertsectionheadnumber{##2}%
+      \def\insertsubsectionheadnumber{##3}%
+      \def\insertsubsectionhead{##5}%
+       \beamer@tocifnothide{\ifnum\c@section=##2\ifnum\c@subsection=##3\beamer@nav@css\else\beamer@nav@oss\fi\else\beamer@nav@ooss\fi}%
+      {\par\leftskip\z@\hbox{{%
+        \usebeamerfont{subsection in sidebar}\usebeamercolor[fg]{subsection in sidebar}%
+          \hyperlink{Navigation##4}{%
+          \ifnum\c@section=##2%
+            \ifnum\c@subsection=##3%
+              \ifnum\c@subsubsection=0\relax%
+                {\usebeamertemplate{subsection in sidebar}}%
+              \else%
+                {\usebeamertemplate{subsection in sidebar shaded}}%
+              \fi%
+            \else%
+              {\usebeamertemplate{subsection in sidebar shaded}}%
+            \fi%
+          \else%
+            {\usebeamertemplate{subsection in sidebar shaded}}%
+          \fi}}}%
+      }%
+      \fi}%
+    \def\beamer@subsubsectionentry##1##2##3##4##5##6{%
+      \ifnum##1=\c@part%
+      \def\insertpartheadnumber{##1}%
+      \def\insertsectionheadnumber{##2}%
+      \def\insertsubsectionheadnumber{##3}%
+      \def\insertsubsubsectionheadnumber{##4}%
+      \def\insertsubsubsectionhead{##6}%
+      \beamer@tocifnothide{\ifnum\c@section=##2\ifnum\c@subsection=##3\ifnum\c@subsubsection=##4\beamer@nav@css\else\beamer@nav@oss\fi\else\beamer@nav@ooss\fi\else\beamer@nav@ooss\fi}%
+      {\par\leftskip\z@\hbox{{%
+        \usebeamerfont{subsubsection in sidebar}\usebeamercolor[fg]{subsubsection in sidebar}%
+          \hyperlink{Navigation##5}{%
+          \ifnum\c@section=##2%
+            \ifnum\c@subsection=##3%
+              \ifnum\c@subsubsection=##4%
+                {\usebeamertemplate{subsubsection in sidebar}}%
+              \else
+                {\usebeamertemplate{subsubsection in sidebar shaded}}%
+              \fi%
+            \else%
+              {\usebeamertemplate{subsubsection in sidebar shaded}}%
+            \fi%
+          \else%
+            {\usebeamertemplate{subsubsection in sidebar shaded}}%
+          \fi}}}%
+      }%
+      \fi}%
+    \def\slideentry##1##2##3##4##5##6{%
+      % section number, subsection number, frame number, 
+      % first/last slide, page number, part number
+      \ifnum##6=\c@part%
+        \leavevmode\leftskip=5pt%
+        \hbox{\beamer@link(##4){%
+          \usebeamerfont{mini frame}\usebeamercolor[fg]{mini frame}%
+            \ifnum\c@section=##1\ifnum\c@subsection=##2%
+              \ifnum\c@subsectionslide=##3%
+                \usebeamertemplate{mini frame}%
+              \else%
+                \usebeamertemplate{mini frame in current subsection}%
+              \fi
+            \else%
+              \usebeamertemplate{mini frame in other subsection}%
+            \fi%
+          \else%
+            \usebeamertemplate{mini frame in other subsection}%
+          \fi}}\hskip1pt%
+        \fi}%
+    \dohead%
+  }%
+}
+
+\ifdim\beamer@sidebarwidth>0pt
+  \defbeamertemplate*{sidebar \beamer@sidebarside}{sidebar with miniframes}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    {\usebeamerfont{title in sidebar}%
+      \vskip1.5em%
+      \hskip3pt%
+      \usebeamercolor[fg]{title in sidebar}%
+      \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    {%
+      \hskip3pt%
+      \usebeamercolor[fg]{author in sidebar}%
+      \usebeamerfont{author in sidebar}%
+      \insertshortauthor[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    \insertverticalnavigationwithminiframes{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+  
+  \ifx\beamer@sidebarside\beamer@lefttext%
+    \defbeamertemplate*{sidebar right}{sidebar with miniframes}
+    {%
+      \vfill%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt}
+  \fi
+  \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\fi
+
+
+\mode
+<all>

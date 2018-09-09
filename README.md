@@ -6,9 +6,13 @@
 
 ## Outer Theme
 
-### split with mini frame
+### split with mini frames
 
-This theme resembles primitive `split` outer theme, but adds slide entries after each subsection entry.
+This theme inherits primitive `split` outer theme, with additional slide entries after each subsection entry.
+
+### sidebar with mini frames
+
+This theme inherits primitive `sidebar` outer theme, with additional slide entries.
 
 ## Inner Theme
 
