@@ -16,7 +16,10 @@ This theme inherits primitive `sidebar` outer theme, with additional slide entri
 
 **Note**: 
 1. The entries by `\subsubsection` are excluded.
-2. This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are OK.
+2. This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are inherited.
+
+### two-line headline theme
+The `headline` in this theme behaves like the compressed version of `headline` in the `split` theme, except that section entries and subsection entries are in separated lines. The `footline` is the same as `infolines` theme.
 
 ## Inner Theme
 
