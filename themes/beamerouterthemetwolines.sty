@@ -15,35 +15,102 @@
 
 \mode<presentation>
 
-\defbeamertemplate*{headline}{two lines}
-{%
-  \leavevmode%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
-    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}%
-  \end{beamercolorbox}%
-  \par\nointerlineskip%
-  \leavevmode%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
-    \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}%
+\setbeamercolor*{section headline}{parent=palette tertiary}
+\setbeamercolor*{subsection headline}{parent=palette secondary}
+\setbeamercolor*{section in head/foot}{parent=palette tertiary,use=palette tertiary,bg=palette tertiary.bg!60!palette tertiary.fg}
+\setbeamercolor*{subection in head/foot}{parent=palette secondary}
+\setbeamercolor{section in head/foot shaded}{use=section in head/foot,fg=section in head/foot.fg!40!bg}
+\setbeamercolor{subsection in head/foot shaded}{use=subsection in head/foot,fg=subsection in head/foot.fg!40!bg}
+
+\defbeamertemplate*{section in head/foot}{two lines}{%
+  \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
+  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot}
+    \box\@tempboxa
   \end{beamercolorbox}%
 }
 
-% Inherited from infolines theme
-\defbeamertemplate*{footline}{two lines}
+\defbeamertemplate*{section in head/foot shaded}{two lines}{%
+  \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
+  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot shaded}
+    \box\@tempboxa
+  \end{beamercolorbox}%
+}
+
+\defbeamertemplate*{subsection in head/foot}{two lines}{%
+  \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsubsectionhead\hskip1ex}%
+  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{subsection in head/foot}
+    \box\@tempboxa
+  \end{beamercolorbox}%
+}
+
+\defbeamertemplate*{subsection in head/foot shaded}{two lines}{%
+  \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsubsectionhead\hskip1ex}%
+  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{subsection in head/foot shaded}
+    \box\@tempboxa
+  \end{beamercolorbox}%
+}
+
+\long\def\insertsectionnavigationline{%
+  \def\sectionentry##1##2##3##4##5{%
+    \ifnum##5=\c@part%
+      \def\insertsectionhead{##2}%
+      \def\insertsectionheadnumber{##1}%
+      \def\insertpartheadnumber{##5}%
+      \hbox{%
+        \usebeamerfont{section in head/foot}%
+        \hyperlink{Navigation##3}{%
+          \ifnum\c@section=##1%
+            {\usebeamertemplate{section in head/foot}}%
+          \else%
+            {\usebeamertemplate{section in head/foot shaded}}%
+          \fi%
+        }%
+      }%
+    \fi%
+  }%
+  \def\beamer@subsectionentry##1##2##3##4##5##6{}%
+  \def\slideentry##1##2##3##4##5##6{}%
+  \dohead%
+}
+
+\long\def\insertsubsectionnavigationline{%
+  \def\sectionentry##1##2##3##4##5{}%
+  \def\beamer@subsectionentry##1##2##3##4##5##6{%
+    \ifnum##1=\c@part%
+      \def\insertpartheadnumber{##1}%
+      \def\insertsectionheadnumber{##2}%
+      \def\insertsubsectionheadnumber{##3}%
+      \def\insertsubsectionhead{##5}%
+      \hbox{%
+        \usebeamerfont{subsection in head/foot}%
+        \hyperlink{Navigation##4}{%
+          \ifnum\c@section=##2%
+            \ifnum\c@subsection=##3%
+              {\usebeamertemplate{subsection in head/foot}}%
+            \else%
+              {\usebeamertemplate{subsection in head/foot shaded}}%
+            \fi%
+          \fi%
+        }%
+      }%
+    \fi%
+  }%
+  \def\slideentry##1##2##3##4##5##6{}%
+  \dohead%
+}
+
+
+\defbeamertemplate*{headline}{two lines}%
 {%
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{section headline}
+    \hskip1ex\insertsectionnavigationline\hfill
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle
+  \par\nointerlineskip
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{subsection headline}
+    \hskip1ex\insertsubsectionnavigationline\hfill
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}\hspace*{2ex} 
-  \end{beamercolorbox}}%
-  \vskip0pt%
 }
 
 \mode
