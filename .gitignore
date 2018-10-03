@@ -1,3 +1,9 @@
+## Build directory
+build/
+
+## VS Code ccnfiguration directory
+.vscode/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -27,6 +33,7 @@
 ## Build tool auxiliary files:
 *.fdb_latexmk
 *.synctex
+*.synctex(busy)
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
