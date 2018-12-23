@@ -17,7 +17,7 @@
 
 \setbeamertemplate{section in head/foot}{\hfill\insertsectionhead}
 \setbeamertemplate{section in head/foot shaded}{\hfill\color{fg!50!bg}\insertsectionhead}
-
+\setbeamercolor{mini frame}{parent=subsection in head/foot}
 
 \def\insertsubsectionnavigationwithminiframe#1{%
   \hbox to #1{%
@@ -50,16 +50,15 @@
         \def\insertpartheadnumber{##6}%
         \leavevmode\setbox\beamer@tempbox=\hbox{\beamer@link(##4){%
           \usebeamerfont{mini frame}%
+          \usebeamercolor[fg]{mini frame}%
           \ifnum\c@section=##1%
             \ifnum\c@subsection=##2%
-              \usebeamercolor[fg]{mini frame}%
               \ifnum\c@subsectionslide=##3%
                 \usebeamertemplate{mini frame}
               \else%
                 \usebeamertemplate{mini frame in current subsection}
               \fi%
             \else%
-              \usebeamercolor{mini frame}%
               \usebeamertemplate{mini frame in other subsection}
             \fi%
           \else%
