@@ -4,7 +4,8 @@
 
 [license shield]: https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg
 
-2018-12-24 v1.0
+Author: Louis Stuart
+Version: 2018-12-24 v1.0
 
 This package bundle is distributed under the LaTeX Project Public License, version 1.3c or later. See [LICENSE](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE) for detailed information.
 
