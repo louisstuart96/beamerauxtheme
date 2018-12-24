@@ -4,13 +4,21 @@
 
 [license shield]: https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg
 
+2018-12-24 v1.0
+
+This package bundle is distributed under the LaTeX Project Public License, version 1.3c or later. See [LICENSE](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE) for detailed information.
+
 ## Outer Theme
 
 ### split with mini frames
 
+> Usage: `\useoutertheme{splitwithminiframes}`
+
 This theme inherits primitive `split` outer theme, with additional slide entries after each subsection entry.
 
 ### sidebar with mini frames
+
+> Usage: `\useoutertheme{sidebarwithminiframes}`
 
 This theme inherits primitive `sidebar` outer theme, with additional slide entries.
 
@@ -19,11 +27,16 @@ This theme inherits primitive `sidebar` outer theme, with additional slide entri
 2. This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are inherited.
 
 ### two-line headline theme
+
+> Usage: `\useoutertheme{twolines}`
+
 The `headline` in this theme behaves like the compressed version of `headline` in the `split` theme, except that section entries and subsection entries are in separated lines. The `footline` is empty.
 
 ## Inner Theme
 
 ### Simple lines
+
+> Usage: `\useinnertheme{simplelines}`
 
 This theme redefines `title page`, `part page`, `section page` and three types of blocks. In particular, blocks are typeset as a whole color box, with a horizontal separation bar between `block title` and `block body`.
 
