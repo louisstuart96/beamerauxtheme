@@ -1,23 +1,26 @@
 # Auxiliary outer and inner themes for LaTeX beamer class
 
 [![license shield]](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE)
+[![ctan shield]](https://ctan.org/pkg/beamerauxtheme)
 
 [license shield]: https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg
+[ctan shield]: https://img.shields.io/ctan/v/beamerauxtheme.svg
 
 Author: Louis Stuart
+
 Version: 2018-12-24 v1.0
 
 This package bundle is distributed under the LaTeX Project Public License, version 1.3c or later. See [LICENSE](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE) for detailed information.
 
 ## Outer Theme
 
-### split with mini frames
+### Split with mini frames
 
 > Usage: `\useoutertheme{splitwithminiframes}`
 
 This theme inherits primitive `split` outer theme, with additional slide entries after each subsection entry.
 
-### sidebar with mini frames
+### Sidebar with mini frames
 
 > Usage: `\useoutertheme{sidebarwithminiframes}`
 
@@ -27,7 +30,7 @@ This theme inherits primitive `sidebar` outer theme, with additional slide entri
 1. The entries by `\subsubsection` are excluded.
 2. This theme doesn't support `hideothersubsections` and `hideallsubsections`. All entries are loaded in the sidebar. Other options supported by `sidebar` are inherited.
 
-### two-line headline theme
+### Two-line headline theme
 
 > Usage: `\useoutertheme{twolines}`
 
