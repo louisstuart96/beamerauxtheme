@@ -5,6 +5,7 @@ sourcefiledir = maindir .. "/themes"
 docfiledir = maindir .. "/doc"
 
 sourcefiles = {"*.sty"}
+docfiles = {"*.ltx"}
 cleanfiles = {"*.zip"}
 textfiles = {"*.md", "LICENSE"}
 unpackfiles = {}
