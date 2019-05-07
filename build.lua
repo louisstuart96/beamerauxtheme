@@ -17,7 +17,7 @@ flatten = false
 tagfiles = {"*.sty", "README.md"}
 function update_tag(file,content,tagname,tagdate)
   return string.gsub(content,
-    "%d%d%d%d%-%d%d%-%d%d v?%d%.%d+",
+    "%d%d%d%d%/%d%d%/%d%d v?%d%.%d+",
     tagdate .. " " .. tagname)
 end
 
