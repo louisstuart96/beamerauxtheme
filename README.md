@@ -1,14 +1,11 @@
 # Auxiliary outer and inner themes for LaTeX beamer class
 
-[![license shield]](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE)
-[![ctan shield]](https://ctan.org/pkg/beamerauxtheme)
+[![License](https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg)](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE)
+[![CTAN Link](https://img.shields.io/ctan/v/beamerauxtheme.svg)](https://ctan.org/pkg/beamerauxtheme)
 
-[license shield]: https://img.shields.io/github/license/louisstuart96/beamerauxtheme.svg
-[ctan shield]: https://img.shields.io/ctan/v/beamerauxtheme.svg
+Author: Louis Stuart (louisstuart96@gmail.com)
 
-Author: Louis Stuart
-
-Version: 2018-12-24 v1.0
+Version: 2018/12/24 v1.0
 
 This package bundle is distributed under the LaTeX Project Public License, version 1.3c or later. See [LICENSE](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE) for detailed information.
 
