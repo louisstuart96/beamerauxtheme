@@ -17,9 +17,15 @@ flattentds = false
 
 tagfiles = {"*.sty", "README.md"}
 function update_tag(file,content,tagname,tagdate)
-  return string.gsub(content,
+  local textagdate = string.gsub(tagdate,"%-","/")
+  if string.match(file,"%.sty") then
+    return string.gsub(content,
     "%d%d%d%d%/%d%d%/%d%d v?%d%.%d+",
+    textagdate .. " " .. tagname)
+  else return string.gsub(content,
+    "%d%d%d%d%-%d%d%-%d%d v?%d%.%d+",
     tagdate .. " " .. tagname)
+  end
 end
 
 kpse.set_program_name("kpsewhich")
