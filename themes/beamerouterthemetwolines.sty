@@ -26,9 +26,8 @@
 
 \defbeamertemplate*{section in head/foot}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
-  \typeout{^^J^^JSection box width = \the\wd\@tempboxa}
   \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot}
-    \strut\hskip1ex\insertsectionhead\hskip1ex
+    \box\@tempboxa
   \end{beamercolorbox}%
 }
 
