@@ -11,8 +11,9 @@ textfiles = {"*.md", "LICENSE"}
 unpackfiles = {}
 typesetfiles = {"*.tex"}
 
-packtdszip = false
+packtdszip = true
 flatten = false
+flattentds = false
 
 tagfiles = {"*.sty", "README.md"}
 function update_tag(file,content,tagname,tagdate)

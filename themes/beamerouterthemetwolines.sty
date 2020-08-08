@@ -26,8 +26,9 @@
 
 \defbeamertemplate*{section in head/foot}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
+  \typeout{^^J^^JSection box width = \the\wd\@tempboxa}
   \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot}
-    \box\@tempboxa
+    \strut\hskip1ex\insertsectionhead\hskip1ex
   \end{beamercolorbox}%
 }
 
@@ -61,7 +62,7 @@
       \hbox{%
         \usebeamerfont{section in head/foot}%
         \hyperlink{Navigation##3}{%
-          \ifnum\c@section=##1%
+          \ifnum\c@section=##1\relax%
             {\usebeamertemplate{section in head/foot}}%
           \else%
             {\usebeamertemplate{section in head/foot shaded}}%
@@ -70,14 +71,14 @@
       }%
     \fi%
   }%
-  \def\beamer@subsectionentry##1##2##3##4##5##6{}%
+  \def\beamer@subsectionentry##1##2##3##4##5{}%
   \def\slideentry##1##2##3##4##5##6{}%
   \dohead%
 }
 
 \long\def\insertsubsectionnavigationline{%
   \def\sectionentry##1##2##3##4##5{}%
-  \def\beamer@subsectionentry##1##2##3##4##5##6{%
+  \def\beamer@subsectionentry##1##2##3##4##5{%
     \ifnum##1=\c@part%
       \def\insertpartheadnumber{##1}%
       \def\insertsectionheadnumber{##2}%
@@ -87,7 +88,7 @@
         \usebeamerfont{subsection in head/foot}%
         \hyperlink{Navigation##4}{%
           \ifnum\c@section=##2%
-            \ifnum\c@subsection=##3%
+            \ifnum\c@subsection=##3\relax%
               {\usebeamertemplate{subsection in head/foot}}%
             \else%
               {\usebeamertemplate{subsection in head/foot shaded}}%
