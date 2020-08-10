@@ -24,30 +24,37 @@
 \setbeamercolor{section in head/foot shaded}{use=section in head/foot,fg=section in head/foot.fg!40!bg}
 \setbeamercolor{subsection in head/foot shaded}{use=subsection in head/foot,fg=subsection in head/foot.fg!40!bg}
 
+\def\twolines@section@wd{}
+\def\twolines@subsection@wd{}
+
 \defbeamertemplate*{section in head/foot}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
-  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot}
+  \edef\twolines@section@wd{\the\wd\@tempboxa}%
+  \begin{beamercolorbox}[wd=\twolines@section@wd,ht=2.5ex,dp=1.125ex]{section in head/foot}
     \box\@tempboxa
   \end{beamercolorbox}%
 }
 
 \defbeamertemplate*{section in head/foot shaded}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsectionhead\hskip1ex}%
-  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{section in head/foot shaded}
+  \edef\twolines@section@wd{\the\wd\@tempboxa}%
+  \begin{beamercolorbox}[wd=\twolines@section@wd,ht=2.5ex,dp=1.125ex]{section in head/foot shaded}
     \box\@tempboxa
   \end{beamercolorbox}%
 }
 
 \defbeamertemplate*{subsection in head/foot}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsubsectionhead\hskip1ex}%
-  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{subsection in head/foot}
+  \edef\twolines@subsection@wd{\the\wd\@tempboxa}%
+  \begin{beamercolorbox}[wd=\twolines@subsection@wd,ht=2.5ex,dp=1.125ex]{subsection in head/foot}
     \box\@tempboxa
   \end{beamercolorbox}%
 }
 
 \defbeamertemplate*{subsection in head/foot shaded}{two lines}{%
   \leavevmode\setbox\@tempboxa\hbox{\strut\hskip1ex\insertsubsectionhead\hskip1ex}%
-  \begin{beamercolorbox}[wd=\wd\@tempboxa,ht=2.5ex,dp=1.125ex]{subsection in head/foot shaded}
+  \edef\twolines@subsection@wd{\the\wd\@tempboxa}%
+  \begin{beamercolorbox}[wd=\twolines@subsection@wd,ht=2.5ex,dp=1.125ex]{subsection in head/foot shaded}
     \box\@tempboxa
   \end{beamercolorbox}%
 }
