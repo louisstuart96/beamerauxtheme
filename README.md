@@ -5,7 +5,7 @@
 
 Author: Louis Stuart (louisstuart96@gmail.com)
 
-Version: 2020-08-08 v1.02
+Version: 2020-08-10 v1.02a
 
 This package bundle is distributed under the LaTeX Project Public License, version 1.3c or later. See [LICENSE](https://github.com/louisstuart96/beamerauxtheme/blob/master/LICENSE) for detailed information.
 
