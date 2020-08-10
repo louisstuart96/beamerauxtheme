@@ -11,7 +11,7 @@ textfiles = {"*.md", "LICENSE"}
 unpackfiles = {}
 typesetfiles = {"*.tex"}
 
-packtdszip = true
+packtdszip = false
 flatten = false
 flattentds = false
 
